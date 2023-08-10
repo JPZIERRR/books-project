@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const exphbs = require('express-handlebars');
 
@@ -7,7 +9,7 @@ const pool = require('./db/conn');
 // Executar express
 const app = express();
 
-const port = process.env.PORT || 3003;
+const PORT = process.env.PORT;
 
 // Conseguir pegar o body
 app.use(
@@ -34,10 +36,14 @@ app.post('/books/insertbook', (req, res) => {
   const pagesnumb = req.body.pagesnumb;
 
   // String que vai ser executada no banco inserindo dados
-  const sql = `INSERT INTO books (??, ??) VALUES (?, ?)`;
+  let sql = `INSERT INTO books (??, ??) VALUES (?, ?)`;
   const data = ['name', 'page_numb', title, pagesnumb];
 
   // tratamento de erros e redirecionamento
+  if (title === '' || pagesnumb === undefined) {
+    res.redirect('/');
+  }
+
   pool.query(sql, data, function (err) {
     if (err) {
       console.log(err);
@@ -151,6 +157,6 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
-app.listen(port, () => {
-  console.log('Server rodando');
+app.listen(PORT, () => {
+  console.log(`Server rodando na porta ${PORT}`);
 });
