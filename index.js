@@ -7,6 +7,8 @@ const pool = require('./db/conn');
 // Executar express
 const app = express();
 
+const port = process.env.PORT || 3003;
+
 // Conseguir pegar o body
 app.use(
   express.urlencoded({
@@ -149,4 +151,6 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
-app.listen(3003);
+app.listen(port, () => {
+  console.log('Server rodando');
+});
