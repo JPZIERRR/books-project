@@ -29,7 +29,7 @@ app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'views'));
 
 // Configurar páginas estáticas para css
-app.use('/static', express.static(__dirname + '/public'));
+app.use(express.static('public'));
 
 // Pegar os dados do formulário e enviar para o banco de dados
 app.post('/books/insertbook', (req, res) => {
