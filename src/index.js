@@ -3,8 +3,10 @@ require('dotenv').config();
 const express = require('express');
 const exphbs = require('express-handlebars');
 
+const path = require('path');
+
 // Módulo que faz conexão com o banco de dados
-const pool = require('./db/conn');
+const pool = require('../db/conn');
 
 // Executar express
 const app = express();
@@ -24,9 +26,10 @@ app.use(express.json());
 // Alterar o template engine para handlebars
 app.engine('handlebars', exphbs.engine());
 app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'views'));
 
 // Configurar páginas estáticas para css
-app.use(express.static('public'));
+app.use(express.static(__dirname + '../../' + '/public'));
 
 // Pegar os dados do formulário e enviar para o banco de dados
 app.post('/books/insertbook', (req, res) => {
