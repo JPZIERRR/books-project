@@ -29,7 +29,7 @@ app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'views'));
 
 // Configurar páginas estáticas para css
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 console.log(__dirname);
 // Pegar os dados do formulário e enviar para o banco de dados
