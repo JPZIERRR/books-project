@@ -6,7 +6,7 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 
 // Módulo que faz conexão com o banco de dados
-const pool = require('../db/conn');
+const pool = require('./db/conn');
 
 // Executar express
 const app = express();
@@ -29,9 +29,8 @@ app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'views'));
 
 // Configurar páginas estáticas para css
-app.use('/public', express.static(path.join(__dirname, '../public')));
+app.use(express.static('public'));
 
-console.log(__dirname);
 // Pegar os dados do formulário e enviar para o banco de dados
 app.post('/books/insertbook', (req, res) => {
   // Pegar a req do input title
