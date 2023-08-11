@@ -1,9 +1,17 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
   font-size: 62.5%;
+}
+
+body {
+  background: #0b0a0a;
+  color: #fff;
 }
 
 h1 {
@@ -17,6 +25,7 @@ a {
   color: rgb(0, 183, 183);
   text-transform: uppercase;
   font-size: 1.4rem;
+  font-weight: bold;
 }
 
 .form,
@@ -25,6 +34,10 @@ a {
   width: 45rem;
   margin: 0 auto;
   font-size: 1.6rem;
+}
+
+.container {
+  padding: 2rem;
 }
 
 .book-page {
@@ -43,13 +56,32 @@ a {
 }
 
 .form-control input {
-  padding: 0.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+}
+
+.submit-btn {
+  border: none;
+  color: #000;
+  background: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0.8rem 2rem;
+  border-radius: 3rem;
+  transition: 300ms all ease-in-out;
+}
+
+.submit-btn:hover {
+  border: 1px solid #fff;
+  color: #fff;
+  background: #0b0a0a;
 }
 
 .books-container div {
   border-bottom: 0.1rem solid #ccc;
-  padding: 0.5rem;
-  margin: 0.5rem;
+  padding: 1rem;
+  margin: 1rem;
 }
 
 .bold {
@@ -95,4 +127,22 @@ a {
   background: none;
   font-size: 1.4rem;
   cursor: pointer;
+  font-weight: bold;
+}
+
+.edit-btn {
+  border: none;
+  color: #000;
+  background: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0.8rem 2rem;
+  border-radius: 3rem;
+  transition: 300ms all ease-in-out;
+}
+
+.edit-btn:hover {
+  border: 1px solid #fff;
+  color: #fff;
+  background: #0b0a0a;
 }

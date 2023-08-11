@@ -1,7 +1,7 @@
 <h1>Livros disponíveis:</h1>
 <div class='books-container'>
   {{#each books}}
-    <div>
+    <div class='books-list'>
       #{{this.id}}
       -
       <span class='bold'> <a href='/books/{{this.id}}'>{{this.name}}</a></span>
@@ -11,5 +11,5 @@
     </div>
   {{/each}}
 
-  <a href='/'>Voltar para home</a>
+  <a class='link-home' href='/'>Voltar para home</a>
 </div>
